@@ -63,6 +63,14 @@ namespace Dreamteck
             }
         }
 
+        public static void DestroyChildren(this Transform src)
+        {
+            for (int i = 0; i < src.childCount; i++)
+            {
+                GameObject.Destroy(src.gameObject);
+            }
+        }
+
         public static bool IsParent(Transform child, Transform parent)
         {
             Transform current = child;
