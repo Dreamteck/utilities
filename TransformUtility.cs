@@ -65,9 +65,10 @@ namespace Dreamteck
 
         public static void DestroyChildren(this Transform src)
         {
-            for (int i = 0; i < src.childCount; i++)
+            int count = src.childCount;
+            for (int i = 0; i < count; i++)
             {
-                GameObject.Destroy(src.gameObject);
+                UnityEngine.Object.Destroy(src.GetChild(i).gameObject);
             }
         }
 
