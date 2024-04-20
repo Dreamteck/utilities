@@ -1,6 +1,5 @@
-namespace Bpositive
+namespace Dreamteck
 {
-    using Dreamteck;
     using System.Linq;
     using UnityEngine;
 
