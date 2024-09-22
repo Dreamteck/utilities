@@ -371,6 +371,7 @@ namespace Dreamteck
                     _title = title;
                     _description = description;
                     _image = image;
+                    size = new Vector2(image.width, image.height);
                 }
 
                 internal override void Draw()
@@ -548,6 +549,7 @@ namespace Dreamteck
             public string description;
             public string bannerUrl;
             public string forwardUrl;
+            public int height;
         }
     }
 }
