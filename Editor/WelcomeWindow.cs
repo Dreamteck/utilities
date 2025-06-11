@@ -414,20 +414,15 @@ namespace Dreamteck
 
             public class Thumbnail : Element
             {
-                private string thumbnailPath = "";
-                private string thumbnailName = "";
-                private Texture2D thumbnail = null;
+                private Texture2D thumbnail;
                 public string title = "";
                 public string description = "";
 
-                public Thumbnail(string path, string fileName, string t, string d, ActionLink a, float x = 400, float y = 60) : base(x, y, a)
+                public Thumbnail(string fileName, string t, string d, ActionLink a, float x = 400, float y = 60) : base(x, y, a)
                 {
                     title = t;
                     description = d;
-                    thumbnailPath = path;
-                    thumbnailName = fileName;
-
-                    thumbnail = ResourceUtility.EditorLoadTexture(thumbnailPath, thumbnailName);
+                    thumbnail = EditorImages.Load(fileName);
                 }
 
                 internal override void Draw()
