@@ -7,6 +7,25 @@ namespace Dreamteck
     public static class SceneUtility
     {
         public static List<Transform> childrenList = new List<Transform>();
+        private static List<MonoBehaviour> __monoList = new List<MonoBehaviour>();
+
+        public static MonoBehaviour[] FindMonoBehavioursOfType<T>(bool includeInactive = false)
+        {
+            MonoBehaviour[] monos = Object.FindObjectsOfType<MonoBehaviour>(includeInactive);
+
+            __monoList.Clear();
+            for (int i = 0; i < monos.Length; i++)
+            {
+                if (monos[i] is T)
+                {
+                    __monoList.Add(monos[i]);
+                }
+            }
+            monos = __monoList.ToArray();
+            __monoList.Clear();
+
+            return monos;
+        }
 
         public static void GetChildrenRecursively(Transform current)
         {
@@ -24,7 +43,7 @@ namespace Dreamteck
             }
         }
 
-        public static T[] GetComponentsInChildrenRecusrively<T>(this GameObject gameObject) where T : Component
+        public static T[] GetComponentsInChildrenRecusrively<T>(this GameObject gameObject)
         {
             GetChildrenRecursively(gameObject.transform);
             List<T> components = new List<T>();
