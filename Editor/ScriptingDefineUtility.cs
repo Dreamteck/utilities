@@ -3,6 +3,10 @@ namespace Dreamteck.Editor
     using UnityEngine;
     using UnityEditor;
 
+#if UNITY_6000_0_OR_NEWER
+    using UnityEditor.Build;
+#endif
+
     public static class ScriptingDefineUtility 
     {
         public static void Add(string define, BuildTargetGroup target, bool log = false)
